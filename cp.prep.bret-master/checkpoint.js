@@ -49,15 +49,23 @@ function sumaTodosPrimos(array) {
   // Nota: Podes usar la funcion 'esPrimo' resuelta en la homework JSII.
   
   // Tu código aca:
-var array = [1, 5, 2, 9, 3, 4, 11];
- 	for( let i = 0; i < array.length; i++) {
-    	if(array[i] % i === 0) {
-   var sumaTodo = array[i]+array[i]; 	
+const elementos = 11;
+    let arreglo = [1, 5, 2, 9, 3, 4, 11];
+    const algunosprimos = [];
+      for(let candidato = 2; candidato <= elementos; candidato++) {
+        if(arreglo.includes(candidato))  {
+        let primo = true;
+        for(let divisor=2; divisor < candidato; divisor++) {
+            if(candidato%divisor === 0) {
+            primo = !primo;
+            break;
         }
-        return;
-      }
-      return sumaTodo;
-  }
+    }
+    if(primo) algunosprimos.push(candidato);
+}
+}
+return (algunosprimos.reduce((a,b)=>a+b));
+}
 
 function sumArray(array, n) {
   // La función llamada 'sumArray' recibe como argumento un arreglo de números ordenados llamado 'array' y un número
